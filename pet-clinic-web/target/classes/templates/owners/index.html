@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'home')}">
+<head>
+<meta charset="UTF-8">
+<title>Pet Owner Listing</title>
+</head>
+<body>
+	<h2 th:text="'Pet Owner Listing'">Pet Owner Listing</h2>
+	
+	<table id="owners" class="table table-striped">
+		<thead>
+			<tr>
+				<th style="width: 150px;">Id</th>
+				<th style="width: 150px;">First Name</th>
+				<th style="width: 150px;">Last Name</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="owner : ${owners}">
+				<td th:text="${owner?.id}">1</td>
+				<td th:text="${owner?.firstName}">Joe</td>
+				<td th:text="${owner?.lastName}">Buck</td>
+			</tr>
+		</tbody>
+	</table>
+	
+</body>
+</html>
