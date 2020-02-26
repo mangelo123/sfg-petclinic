@@ -2,6 +2,7 @@ package guru.springframework.sfgpetclinic.service.map;
 
 import java.util.Set;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import guru.springframework.sfgpetclinic.model.Owner;
@@ -11,6 +12,7 @@ import guru.springframework.sfgpetclinic.service.PetService;
 import guru.springframework.sfgpetclinic.service.PetTypeService;
 
 @Service
+@Profile({"default", "map"})
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
 	private final PetTypeService petTypeService;
@@ -73,8 +75,11 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 
 	@Override
 	public Owner findByLastName(String lastName) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.findAll()
+				.stream()
+				.filter(owner -> owner.getLastName().equalsIgnoreCase(lastName))
+				.findFirst()
+				.orElse(null);
 	}	
 
 }
