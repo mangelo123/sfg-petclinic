@@ -143,10 +143,10 @@
 				</dependencies>
 			</plugin>
 
-			<plugin>
+<!-- 			<plugin>
 				<artifactId>maven-suregire-plugin</artifactId>
 				<version>2.22.0</version>
-			</plugin>
+			</plugin> -->
 
 		</plugins>
 	</build>
